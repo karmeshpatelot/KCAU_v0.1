@@ -20,7 +20,7 @@
                      styleClass="p-datatable-sm p-datatable-striped"
                      [globalFilterFields]="['name','code']" 
                      [paginator]="true" 
-                     [rowsPerPageOptions]="[10,20,30,50]" 
+                     [rowsPerPageOptions]="[10,20,30,50,100]" 
                      [showCurrentPageReport]="true" 
                      [showPageLinks]="false"
                      [totalRecords]="totalRecords"
@@ -76,7 +76,7 @@
   </div>
   
 
-  <p-dialog header="Fees Alert" [modal]="true" [(visible)]="LoadModel" position="center"  [style]="{ width: '50rem' }"
+  <!--p-dialog header="Fees Alert" [modal]="true" [(visible)]="LoadModel" position="center"  [style]="{ width: '50rem' }"
     [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="false">
        
        <div style="text-align: center;" *ngIf="userData?.status == 'Unpaid'">
@@ -95,4 +95,4 @@
         <div class="flex justify-content-end gap-2"  style="float: left;">
             <p-button label="Ok" severity="secondary" (onClick)="LoadModel = false"/>
         </div>
-</p-dialog>
+</p-dialog-->
