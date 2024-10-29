@@ -1,0 +1,84 @@
+{
+	"data": [
+		{
+			"code": "KCA/11/1001",
+			"gender" :"Male",
+			"name": "Praveen",
+			"fees": true
+		},
+		{
+			"code": "KCA/11/1002",
+			"name": "Kiya",
+			"gender" :"Female",
+			"fees": false
+		},
+		{
+			"code": "KCA/11/1003",
+			"gender" :"Male",
+			"name": "Rajkumar",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1004",
+			"name": "Deep Mewada",
+			"fees": false
+			
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1005",
+			"name": "Karmesh Patel",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1006",
+			"name": "Ravi Patel",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1007",
+			"name": "Chakra Bracelet",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1008",
+			"name": "Galaxy Earrings",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1009",
+			"name": "Game Controller",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1010",
+			"name": "Gaming Set",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1011",
+			"name": "Gold Phone Case",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1012",
+			"name": "Green Earbuds",
+			"fees": true
+		},
+		{
+			"gender" :"Male",
+			"code": "KCA/11/1013",
+			"name": "Green T-Shirt",
+			"fees": true
+		}
+		
+	]
+}

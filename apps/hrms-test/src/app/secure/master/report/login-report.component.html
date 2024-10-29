@@ -1,0 +1,52 @@
+<div class="grid">
+    <div class="col-10">
+        <h3>Login Log</h3>
+    </div>
+    <div class="col-2" style="text-align: right;">
+        <p-button (onClick)="sidebarVisible = true" icon="pi pi-filter" />
+    </div>
+</div>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+    <h3>Filter Date</h3>
+    <hr>
+    <form class="row g-3 needs-validation" [formGroup]="filterData" (ngSubmit)="getLoginReport()">
+        <!---ER.NO-->
+        <label for="otp" class="block text-900 text-xl font-medium mb-2">Date</label>
+        <input type="date" formControlName="date" pInputText class="w-full md:w-100% mb-5">
+
+        <hr>
+        <button pButton pRipple label="Filter" type="submit" [disabled]="filterData.invalid" style="background: #007bff;border: none;"
+            class="w-full p-3 text-xl btn-sm"></button>
+    </form>
+</p-sidebar>
+
+<div class="card" style="padding: 8px;" *ngIf="!loading">
+<p-messages 
+    [(value)]="messages" 
+    [enableService]="false" 
+    [closable]="false" />
+</div>
+
+<div class="card" style="padding: 8px;" *ngIf="loading">
+
+<br>
+
+<p-table  [value]="attDataList" scrollHeight="flex" [scrollable]="true" scrollHeight="400px"
+    styleClass="p-datatable-gridlines p-datatable-sm">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:10px">Name</th>
+            <th style="width:10px">Type</th> 
+            <th style="width:10px">Log Time</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-attDataList>
+        <tr>
+           <td>{{attDataList.userName}}</td>
+           <td>{{attDataList.type}}</td>
+           <td>{{attDataList?.loginTime | date: 'dd-MM-yyyy hh:mm'}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>

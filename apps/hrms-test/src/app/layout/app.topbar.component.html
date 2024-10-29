@@ -1,0 +1,96 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <span>KCAU BioTrack</span>
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-align-left"></i>
+    </button>
+
+    <button *ngIf="type != 'student'" class="p-link layout-topbar-menu-button layout-topbar-button" (click)="sidebarVisible = true">
+        <i class="pi pi-thumbs-up"></i>
+    </button>
+
+   <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
+    <i class="pi pi-ellipsis-v"></i>
+   </button>
+
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+        <button class="p-link layout-topbar-button" (click)="openModel()">
+            <i class="pi pi-user"></i>
+            <span>Profile ({{er_No}})</span>
+        </button>
+        <button class="p-link layout-topbar-button" (click)="logoutData()">
+            <i class="pi pi-power-off"></i>
+            <span>Logout</span>
+        </button>
+    </div>
+</div>
+
+<p-dialog header="User Profile" [modal]="true" [(visible)]="profileView" position="top" *ngIf="profileView" [style]="{ width: '50rem'}" style="text-align: center;"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
+    <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg" width="100" height="100" style="border-radius: 50px;">
+    <h4 style="margin-bottom: 2px;">{{type == 'student' ? userProfile.name : userProfile?.first_name }}</h4>
+    <span><b>{{type == 'student' ? userProfile.student_no : userProfile.staff_no}}</b></span>
+    <table>
+        <tr>
+            <td><b>Email</b></td>
+            <td>{{userProfile.email}}</td>
+        </tr>
+        <tr>
+            <td><b>Gender</b></td>
+            <td>{{userProfile.gender}}</td>
+        </tr>
+        <tr>
+            <td><b>Campus</b></td>
+            <td>{{userProfile.campus}}</td>
+        </tr>
+        <tr>
+            <td><b>Date of Join</b></td>
+            <td>{{type == 'student' ? userProfile.date_registered : userProfile.date_joined}}</td>
+        </tr>
+        <tr *ngIf="type == 'student'">
+            <td><b>Fees Status</b></td>
+            <td><p-badge value="{{userProfile.allow == 'TRUE' ? 'Paid' : 'Unpaid' }}" severity="success"/></td>
+        </tr>
+    </table>
+</p-dialog>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+    <h3>Attendance Capture</h3>
+    
+    <form class="row g-3 needs-validation" [formGroup]="filterData" (ngSubmit)="storeData()">
+        <!---ER.NO-->
+        <label for="otp" class="block text-900 text-xl font-medium mb-2">Main Type</label>
+        <div *ngFor="let category of categories" class="field-checkbox">
+            <p-radioButton 
+                [inputId]="category.key" 
+                [value]="category"
+                formControlName="mainType" />
+                <label [for]="category.key" class="ml-2">
+                    {{ category.name }}
+                </label>
+        </div>
+        <ng-container *ngIf="filterData.value?.mainType?.key == 'campus'">
+        <br>
+        <label for="otp" class="block text-900 text-xl font-medium mb-2">Sub Type</label>
+        <div *ngFor="let category of subcategories" class="field-checkbox">
+            <p-radioButton 
+                [inputId]="category.key" 
+                [value]="category"
+                formControlName="subType" />
+                <label [for]="category.key" class="ml-2">
+                    {{ category.name }}
+                </label>
+        </div>
+        </ng-container>
+
+        <hr>
+        <button label="Start" type="submit" [disabled]="filterData.invalid" style="color: #ffff ;background: #007bff;border: none;"
+            class="w-full p-3 text-xl btn-sm">Start Puch</button>
+    </form>
+    <br>
+        <button  style="color: #ffff ;background: #ff0040;border: none;" (click)="stopPuch()"
+         class="w-full p-3 text-xl btn-sm">Stop Puch</button>
+</p-sidebar>
+

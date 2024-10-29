@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@admin/auth/*": ["apps/hrms-test/src/app/auth/*"],
+      "@admin/core/*": ["apps/hrms-test/src/app/core/*"],
+      "@admin/layout/*": ["apps/hrms-test/src/app/layout/*"],
+      "@admin/pages/*": ["apps/hrms-test/src/app/pages/*"],
+      "@admin/secure/*": ["apps/hrms-test/src/app/secure/*"],
+      "@admin/shared/*": ["apps/hrms-test/src/app/shared/*"],
+      "@hrms/libs": ["libs/shared/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

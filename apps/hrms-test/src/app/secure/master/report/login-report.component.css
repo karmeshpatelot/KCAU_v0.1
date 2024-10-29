@@ -1,0 +1,26 @@
+.h1, h2, h3, h4, h5, h6{
+    margin: 0px !important;
+}
+.width-100{
+    width: 100%;
+}
+table{
+    min-width: 0px !important;
+}
+
+th,td{
+    text-align: center !important;
+}
+span{
+    padding: 5px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+.greenBack{
+    background-color:#76db9b;
+}
+
+.redBack{
+    background-color:#ff8780;
+}

@@ -1,0 +1,44 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="flex flex-column align-items-center justify-content-center">                  
+        <div style="border-radius:56px;margin-top: 30px; padding:0.3rem; background: linear-gradient(180deg, #2e3b61 10%, rgba(33, 150, 243, 0) 30%)">
+            <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+                <div class="text-center mb-5">
+                    <div class="text-900 text-3xl font-medium mb-3">Welcome, KCAU BioTrack!</div>
+                    <span class="text-600 font-medium">Sign in to continue</span>
+                </div>
+
+                <div>
+                    <form class="row g-3 needs-validation" [formGroup]="lognUser">
+                    <!---ER.NO-->
+
+                    <div class="flex flex-wrap gap-3">
+                        <div *ngFor="let category of stateOptions" class="flex align-items-center">
+                            <p-radioButton 
+                                [inputId]="category.value" 
+                                [value]="category" 
+                                formControlName="type" />
+                            <label [for]="category.value" class="ml-2">
+                                {{ category.label }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <br>
+                    <ng-container *ngIf="lognUser.value.type.value != 'admin'">
+                      <label for="er_no" class="block text-900 text-xl font-medium mb-2">ER.NO</label>
+                      <input id="er_no" type="text" formControlName="er_no" required placeholder="ER.NO" pInputText class="w-full md:w-100% mb-5" style="padding:1rem">
+                    </ng-container>
+
+                    <ng-container *ngIf="lognUser.value.type.value == 'admin'">
+                        <label for="er_no" class="block text-900 text-xl font-medium mb-2">Email</label>
+                        <input id="er_no" type="email" formControlName="er_no" required placeholder="Email" pInputText class="w-full md:w-100% mb-5" style="padding:1rem">
+                    </ng-container>
+
+                    <button pButton pRipple label="Next" [disabled]="lognUser.controls['er_no'].invalid && loading" (click)="loginCheck()" type="submit" style="background: #007bff;border: none;" class="w-full p-3 text-xl btn-sm"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

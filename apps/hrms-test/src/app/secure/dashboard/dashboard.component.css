@@ -1,0 +1,51 @@
+.time-table{
+  padding: 1em;
+  cursor: pointer;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    flex-direction: row;
+    overflow: auto;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+  display: none;
+}
+
+.cal{
+  float: right;
+  margin-top: -45px;
+}
+
+:host ::ng-deep {
+  .p-orderlist-controls{
+    display: none;
+  }
+
+  .fc-today-button{
+    display: none;
+  }
+
+  .fc .fc-toolbar-title{
+    font-size: 16px;
+  }
+      
+  .layout-wrapper .layout-main-container {
+      margin-left: 0;
+      padding:5px !important;
+  }
+}
+
+

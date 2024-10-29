@@ -1,0 +1,194 @@
+<!--h2>Today Time Table</h2-->
+
+<!-- <div class="grid">
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-green-300 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-green-300 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    A
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    A
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-green-300 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-green-300 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    A
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-green-300 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 xl:col-3" (click)="userType == 'staff' && openNew()">
+        <div class="card mb-0 time-table">
+            <div class="flex justify-content-between">
+                <div>
+                    <div class="text-900 font-medium text-xl">Computer Class</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    A
+                </div>
+            </div>
+            <span class="text-500">7:00 AM to 9:00 AM</span>
+        </div>
+    </div>
+</div> -->
+
+<div class="row" *ngIf="loadChart && userType != 'student'">
+    <div class="col-12 lg:col-6 xl:col-6" style="padding: 0px;">
+        <h2>Daily Attendance</h2>
+        <div class="card flex justify-content-center">
+            <p-chart type="pie" [data]="daily" [options]="options" />
+        </div>
+    </div>
+    <br>
+    <div class="col-12 lg:col-6 xl:col-6" style="padding: 0px;">
+        <h2>Fees Status</h2>
+        <div class="card flex justify-content-center">
+            <p-chart type="pie" [data]="fees" [options]="options" />
+        </div>
+    </div>
+</div>
+
+
+<h2>Attendance</h2>
+<!-- <p-calendar view="month" dateFormat="mm/yy" [readonlyInput]="true" class="cal" /> -->
+
+<p-tabView (onChange)="showCal($event)">
+    <p-tabPanel header="Campas Attendance">
+        <ng-container *ngIf="!attType && !loading">
+            <lib-libs [events]="events" [options]="calendarOptions"></lib-libs>
+        </ng-container>
+    </p-tabPanel>
+    <p-tabPanel header="Class Attendance">
+        <ng-container *ngIf="attType && !loading">
+            <lib-libs [events]="eventsClass" [options]="calendarOptions"></lib-libs>
+        </ng-container>
+    </p-tabPanel>
+</p-tabView>
+
+
+<p-dialog header="Student List" [modal]="true" [(visible)]="listDialog" position="top" [style]="{ width: '50rem' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
+    <p-orderList [value]="studentList" [listStyle]="{ 'max-height': '30rem' }" filterBy="name"
+        filterPlaceholder="Filter by name">
+        <ng-template let-studentList pTemplate="item">
+            <div class="flex flex-wrap p-2 align-items-center gap-3">
+
+                <div class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    P
+                </div>
+                <div class="flex-1 flex flex-column gap-2">
+                    <span class="font-bold">
+                        <i [ngClass]="studentList.gender == 'Male' ? 'fa fa-male' : 'fa fa-female'"></i>
+                        {{ studentList.name }}
+                    </span>
+                    <div class="flex align-items-center gap-2">
+                        <i class="pi pi-tag text-sm"></i>
+                        <span>{{studentList.code }}</span>
+                    </div>
+                </div>
+                <span class="font-bold text-900">
+                    <p-badge value="Paid" severity="success" *ngIf="studentList.fees" />
+                    <p-badge value="Unpaid" severity="danger" *ngIf="!studentList.fees" />
+                </span>
+            </div>
+        </ng-template>
+    </p-orderList>
+</p-dialog>

@@ -1,0 +1,102 @@
+<div class="grid">
+    <div class="col-10">
+        <h3>Attendance Log</h3>
+    </div>
+    <div class="col-2" style="text-align: right;">
+        <p-button (onClick)="sidebarVisible = true" icon="pi pi-filter" />
+    </div>
+</div>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+    <h3>Filter Student</h3>
+    <hr>
+    <form class="row g-3 needs-validation" [formGroup]="filterData" (ngSubmit)="getAttendaceReport()">
+        <!---ER.NO-->
+        <label for="otp" class="block text-900 text-xl font-medium mb-2">Month</label>
+        <input type="month" formControlName="month" pInputText class="w-full md:w-100% mb-5">
+
+        <label for="date" class="block text-900 text-xl font-medium mb-2">Date</label>
+        <input type="date" formControlName="date" pInputText class="w-full md:w-100% mb-5">
+
+        
+        <ng-container>
+        <label for="student" class="block text-900 text-xl font-medium mb-2">Sutudent</label>
+        <p-dropdown [options]="studentList" formControlName="student" optionLabel="enrollNo" [filter]="true" filterBy="enrollNo"
+            [showClear]="true" placeholder="Select a Student">
+            <ng-template pTemplate="selectedItem" let-selectedOption>
+                <div class="flex align-items-center gap-2">
+                    <div>{{ selectedOption?.enrollNo }}</div>
+                </div>
+            </ng-template>
+            <ng-template let-stud pTemplate="item">
+                <div class="flex align-items-center gap-2">
+                    <div>{{ stud?.enrollNo }}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        </ng-container>
+
+        <hr>
+        <button pButton pRipple label="Filter" type="submit" [disabled]="filterData.invalid" style="background: #007bff;border: none;"
+            class="w-full p-3 text-xl btn-sm"></button>
+    </form>
+</p-sidebar>
+
+<div class="card" style="padding: 8px;" *ngIf="!loadingReport">
+
+    <p-table  [value]="attCountData" scrollHeight="flex" [scrollable]="true" scrollHeight="400px"
+    styleClass="p-datatable-gridlines p-datatable-sm">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:10px">Name</th>
+            <th style="width:10px">ER.NO</th> 
+            <th style="width:10px">Present</th>
+            <th style="width:10px">Absent</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-attCountData>
+        <tr>
+            <td>{{ attCountData?.userName}}</td>
+            <td>{{ attCountData?.enrollNo}}</td>
+            <td>{{ attCountData?.presentCount}}</td>
+            <td>{{ attCountData?.absentCount}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</div>
+
+<div class="card" style="padding: 8px;" *ngIf="loadingReport">
+<div class="col-12" style="text-align: center;">
+<span><b>Name : {{name}}</b></span><br><br> 
+<span style="color: green;margin-top: -5px;border: 1px solid;"><b>P : {{present}}</b></span> 
+<span style="color: red;margin-top: -5px;border: 1px solid;"><b>A : {{absent}} </b></span> 
+</div>
+<br>
+
+<p-table  [value]="attDataList" scrollHeight="flex" [scrollable]="true" scrollHeight="400px"
+    styleClass="p-datatable-gridlines p-datatable-sm">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:10px">Date</th>
+            <th style="width:10px">Status</th> 
+            <th style="width:10px">Log Time</th>
+            <th style="width:10px">Reasons</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-attDataList>
+        <tr>
+            <td>{{ attDataList?.forDate | date: 'dd/MM/yyyy'}}</td>
+            <td [ngClass]="attDataList?.attendanceStatus == 'Present' ? 'greenBack' : 'redBack'">
+                <b>{{attDataList?.attendanceStatus}}</b>
+            </td>
+            <td>{{ attDataList?.inTime | date: 'hh:mm' ?? '-' }}</td>
+            <td [ngClass]="attDataList?.feesStatus == 'PAID' ? 'greenBack' : (attDataList?.feesStatus == 'UNPAID' ? 'redBack' : '')">
+                <b>{{ attDataList?.feesStatus == 'PAID' ? 'PAID' : (attDataList?.feesStatus == 'UNPAID' ? 'UNPAID' : 'No Puch') }}</b>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>

@@ -1,0 +1,52 @@
+<p-table #dt [value]="data" 
+[columns]="columns" 
+[lazy]="true"
+(onLazyLoad)="loadCustomers($event)"
+(selectionChange)="onSelectionChange($event)"
+(selectAllChange)="onSelectAllChange($event)"
+responsiveLayout="scroll" 
+[rows]="10" 
+styleClass="p-datatable-sm p-datatable-striped"
+[globalFilterFields]="['name','code']" 
+[paginator]="true" 
+[rowsPerPageOptions]="[10,20,30,50]" 
+[showCurrentPageReport]="true" 
+[showPageLinks]="false"
+[totalRecords]="totalRecords"
+currentPageReportTemplate="{first} to {last} of {totalRecords}" 
+[(selection)]="selectedItem" 
+selectionMode="multiple"
+[rowHover]="true" dataKey="id">
+
+<ng-template pTemplate="caption">
+ <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+     <h5 class="m-0">Manage Branch</h5>
+     <span class="block mt-2 md:mt-0 p-input-icon-left">
+         <i class="pi pi-search"></i>
+         <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."  class="w-full sm:w-auto"/>
+     </span>
+ </div>
+</ng-template>
+
+<ng-template pTemplate="header" let-columns>
+ <tr>
+     <th style="width: 3rem"><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
+     <ng-container *ngFor="let col of columns">
+         <th *ngIf="!col.checkbox" pSortableColumn="{{col.field}}"> {{ col.header }} <p-sortIcon field="{{col.field}}"></p-sortIcon></th>
+     </ng-container>
+ </tr>
+</ng-template>
+
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+ <tr>
+     <td>
+         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+     </td>
+     <ng-container *ngFor="let col of columns">
+         <td *ngIf="!col.checkbox">
+             {{ rowData[col.field] }}
+         </td>
+     </ng-container>
+ </tr>
+</ng-template>
+</p-table>
